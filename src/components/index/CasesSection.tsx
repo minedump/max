@@ -46,13 +46,13 @@ export const CasesSection: React.FC = () => {
         </div>
 
         {/* Slider */}
-        <div className="overflow-hidden -mx-4 px-4" ref={emblaRef}>
+        <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex gap-4">
             {/* Case slides */}
             {visibleCases.map((caseItem) => (
               <div
                 key={caseItem.id}
-                className="flex-none w-[85%] sm:w-[48%] lg:w-[calc((100%-2rem)/3)]"
+                className="flex-none w-[85%] sm:w-[48%] lg:w-[calc((100%_-_2rem)_/_3)]"
               >
                 <div className="p-6 border-2 border-gray-500 hover:border-primary rounded-[.75rem] flex flex-col h-full transition-colors duration-200">
                   {/* Image */}
@@ -101,7 +101,7 @@ export const CasesSection: React.FC = () => {
 
             {/* "Смотреть все" slide — управляется флагом SLIDER_SHOW_ALL_SLIDE */}
             {SLIDER_SHOW_ALL_SLIDE && (
-              <div className="flex-none w-[85%] sm:w-[48%] lg:w-[calc((100%-2rem)/3)]">
+              <div className="flex-none w-[85%] sm:w-[48%] lg:w-[calc((100%_-_2rem)_/_3)]">
                 <div className="p-6 border-2 border-dashed border-gray-300 hover:border-primary rounded-[.75rem] flex flex-col items-center justify-center h-full min-h-[400px] gap-3 transition-colors duration-200 group">
                   <p className="font-bold uppercase tracking-wider text-primary text-center">
                     Смотреть все кейсы
