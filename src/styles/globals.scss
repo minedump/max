@@ -1,0 +1,235 @@
+// globals.scss
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: $text-primary;
+  background: $background-light;
+  font-family: 'Roboto Mono', monospace;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.container {
+  @include container;
+}
+
+.glass {
+  @apply backdrop-blur-md bg-white/30;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-bg {
+  background: 
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(255, 107, 0, 0.45) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(99, 102, 241, 0.45) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(236, 72, 153, 0.4) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(34, 197, 94, 0.4) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(168, 85, 247, 0.4) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(248, 246, 255, 0.5) 0%,
+      rgba(255, 240, 245, 0.5) 20%,
+      rgba(240, 249, 255, 0.5) 40%,
+      rgba(240, 253, 244, 0.5) 60%,
+      rgba(254, 243, 199, 0.5) 80%,
+      rgba(255, 228, 230, 0.5) 100%
+    );
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+}
+.animated-bg-small {
+  background: 
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(132, 255, 41, 0.45) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(255, 255, 255, 0.45) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 30% 40%,
+      rgba(255, 255, 0, 0.5) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 180, 0.5) 0%,
+      rgba(255, 255, 100, 0.5) 20%,
+      rgba(255, 240, 0, 0.5) 40%,
+      rgba(255, 255, 0, 0.5) 60%,
+      rgba(200, 255, 80, 0.5) 80%,
+      rgba(255, 255, 100, 0.5) 100%
+    );
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card-gradient {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: -10%;
+    width: 250px;
+    height: 250px;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.3s ease;
+    transform: scale(0.8);
+    pointer-events: none;
+    z-index: -1;
+    border-radius: 50%;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    transform: scale(1);
+    animation: gradientFadeIn 0.3s ease forwards;
+  }
+
+  &:hover .details-container {
+    span {
+      color: $text-primary;
+    }
+    svg {
+      color: $text-primary;
+    }
+  }
+}
+
+.card-gradient-0::before {
+  background: radial-gradient(
+    circle at 0% 100%,
+    rgba(132, 255, 41, 0.45) 0%,
+    rgba(255, 255, 0, 0.2) 40%,
+    transparent 70%
+  );
+}
+
+.card-gradient-1::before {
+  background: radial-gradient(
+    circle at 0% 100%,
+    rgba(255, 230, 0, 0.45) 0%,
+    rgba(255, 107, 0, 0.2) 40%,
+    transparent 70%
+  );
+}
+
+.card-gradient-2::before {
+  background: radial-gradient(
+    circle at 0% 100%,
+    rgba(255, 107, 0, 0.45) 0%,
+    rgba(255, 230, 0, 0.2) 40%,
+    transparent 70%
+  );
+}
+
+.card-gradient-3::before {
+  background: radial-gradient(
+    circle at 0% 100%,
+    rgba(99, 102, 241, 0.45) 0%,
+    rgba(168, 85, 247, 0.2) 40%,
+    transparent 70%
+  );
+}
+
+.card-gradient-4::before {
+  background: radial-gradient(
+    circle at 0% 100%,
+    rgba(236, 72, 153, 0.45) 0%,
+    rgba(255, 107, 0, 0.2) 40%,
+    transparent 70%
+  );
+}
+
+.card-gradient-5::before {
+  background: radial-gradient(
+    circle at 0% 100%,
+    rgba(34, 197, 94, 0.45) 0%,
+    rgba(132, 255, 41, 0.2) 40%,
+    transparent 70%
+  );
+}
+
+.hero-video {
+  object-position: 85% center;
+}
+
+@media (min-width: 640px) {
+  .hero-video {
+    object-position: 90% center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-video {
+    object-position: 95% center;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero-video {
+    object-position: 100% center;
+  }
+}
