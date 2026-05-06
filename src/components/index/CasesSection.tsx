@@ -2,7 +2,7 @@
 
 import React, { useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { IconArrowRight, IconArrowLeft } from '@tabler/icons-react';
+import { IconChevronRight, IconChevronLeft, IconArrowRight } from '@tabler/icons-react';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { cases, SLIDER_CASES_COUNT, SLIDER_SHOW_ALL_SLIDE } from '@/lib/cases';
@@ -33,14 +33,14 @@ export const CasesSection: React.FC = () => {
               aria-label="Предыдущий кейс"
               className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-200"
             >
-              <IconArrowLeft size={18} />
+              <IconChevronLeft size={18} stroke={1.5} />
             </button>
             <button
               onClick={scrollNext}
               aria-label="Следующий кейс"
               className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-200"
             >
-              <IconArrowRight size={18} />
+              <IconChevronRight size={18} stroke={1.5} />
             </button>
           </div>
         </div>
