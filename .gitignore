@@ -4,3 +4,5 @@ package-lock.json
 /out
 next-env.d.ts
 /.vscode
+.env.local
+.env*.local
